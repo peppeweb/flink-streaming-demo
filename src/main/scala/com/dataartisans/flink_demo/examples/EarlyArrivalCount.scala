@@ -58,7 +58,7 @@ object EarlyArrivalCount {
     val earlyCountThreshold = 50
 
     // Elasticsearch parameters
-    val writeToElasticsearch = true // set to true to write results to Elasticsearch
+    val writeToElasticsearch = false // set to true to write results to Elasticsearch
     val elasticsearchHost = "localhost" // look-up hostname in Elasticsearch log output
     val elasticsearchPort = 9300
 
