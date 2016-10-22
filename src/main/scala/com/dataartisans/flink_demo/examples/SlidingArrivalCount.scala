@@ -68,6 +68,7 @@ object SlidingArrivalCount {
     val rides: DataStream[TaxiRide] = env.addSource(new TaxiRideSource(
       data, maxServingDelay, servingSpeedFactor))
 
+
     val cleansedRides = rides
       // filter for trip end events
       .filter( !_.isStart )

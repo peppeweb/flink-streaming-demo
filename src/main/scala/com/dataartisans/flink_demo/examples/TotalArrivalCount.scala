@@ -48,7 +48,7 @@ object TotalArrivalCount {
 
     // Elasticsearch parameters
     val writeToElasticsearch = false // set to true to write results to Elasticsearch
-    val elasticsearchHost = "" // look-up hostname in Elasticsearch log output
+    val elasticsearchHost = "localhost" // look-up hostname in Elasticsearch log output
     val elasticsearchPort = 9300
 
 
@@ -76,6 +76,11 @@ object TotalArrivalCount {
       // key stream by cell Id
       .keyBy(_._1)
       // sum passengers per cell Id and update time
+      /*
+      The fold method for a List takes two arguments; the start value and a function.
+      This function also takes two arguments; the accumulated value and the current item in the list.
+      So here's what happens:
+      */
       .fold((0, 0L, 0), (s: (Int, Long, Int), r: (Int, Long, Short)) =>
         { (r._1, s._2.max(r._2), s._3 + r._3) } )
 

@@ -41,7 +41,7 @@ import org.apache.flink.util.Collector
  * See
  *   http://github.com/dataartisans/flink-streaming-demo
  * for more detail.
- *
+ * Data in line 914758,2013-01-01 00:00:00,START,-73.866131999999993,40.771090000000001,6,-1
  */
 object EarlyArrivalCount {
 
@@ -58,8 +58,8 @@ object EarlyArrivalCount {
     val earlyCountThreshold = 50
 
     // Elasticsearch parameters
-    val writeToElasticsearch = false // set to true to write results to Elasticsearch
-    val elasticsearchHost = "" // look-up hostname in Elasticsearch log output
+    val writeToElasticsearch = true // set to true to write results to Elasticsearch
+    val elasticsearchHost = "localhost" // look-up hostname in Elasticsearch log output
     val elasticsearchPort = 9300
 
 
@@ -75,7 +75,7 @@ object EarlyArrivalCount {
       // filter for trip end events
       .filter( !_.isStart )
       // filter for events in NYC
-      .filter( r => NycGeoUtils.isInNYC(r.location) )
+     // .filter( r => NycGeoUtils.isInNYC(r.location) )
 
     // map location coordinates to cell Id, timestamp, and passenger count
     val cellIds: DataStream[(Int, Short)] = cleansedRides

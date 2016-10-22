@@ -1,5 +1,9 @@
 ## Demo Applications for Apache Flink&trade; DataStream
 
+####UPDATE
+
+To Build: sudo mvn package -DskipTests -Drat.numUnapprovedLicenses=100
+
 This repository contains demo applications for [Apache Flink](https://flink.apache.org)'s
 [DataStream API](https://ci.apache.org/projects/flink/flink-docs-release-0.10/apis/streaming_guide.html).
 
@@ -16,6 +20,7 @@ Requirements:
 - Git
 - an IDE with Scala support (we recommend IntelliJ IDEA)
 
+Refer to the original repository for more details [Flink Streaming Demo](https://github.com/dataArtisans/flink-streaming-demo)
 To run a demo application in your IDE follows these steps:
 
 1. **Clone the repository:** Open a terminal and clone the repository:
